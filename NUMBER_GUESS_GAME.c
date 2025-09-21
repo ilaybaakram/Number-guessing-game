@@ -48,7 +48,7 @@ int main()
         } while (guess != secret_num);
 
         printf("CONGRATULATIONS🏆\n");
-        printf("Do you want to want to play again (Y for yes : N for no)");
+        printf("Do you want to play again (Y for yes : N for no)");
         scanf(" %c", &option);
 
     } while (option == 'Y' || option == 'y');
