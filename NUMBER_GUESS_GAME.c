@@ -1,59 +1,69 @@
 #include <stdio.h>
-int main()
+#include <stdlib.h>
+#include <time.h>
+
+int main(void)
 {
-    int secret_num = 42;
+    int secret_num;
     int guess;
     char option;
 
-    printf("-----NUMBER GUESSING GAME-----\n");
+    /* Seed the random number generator once, at the start of the program. */
+    srand((unsigned int)time(NULL));
+
+    printf("----- NUMBER GUESSING GAME -----\n");
 
     do
     {
+        secret_num = rand() % 100 + 1; /* A new secret number from 1 to 100 */
+        printf("\nI've picked a number between 1 and 100. Can you guess it?\n");
+
         do
         {
             printf("Enter your guess (between 1-100): ");
-            scanf("%d", &guess);
 
-            if (guess == secret_num)
+            if (scanf("%d", &guess) != 1)
             {
-                printf("🎊YOU GOT IT🎊\n");
+                printf("Please enter a valid whole number.\n");
+                while (getchar() != '\n')
+                    ;
+                guess = 0;
+                continue;
             }
-            else if (guess >= 1 && guess <= 20)
+
+            if (guess < 1 || guess > 100)
             {
-                printf("TOO LOW.....\n");
+                printf("Invalid number! Your guess must be between 1 and 100.\n");
             }
-            else if (guess >= 21 && guess <= 29)
+            else if (guess == secret_num)
             {
-                printf("CLOSE.....\n");
-            }
-            else if (guess >= 30 && guess <= 39) 
-            {
-                printf("SLIGHTLY LOW.....\n");
-            }
-            else if (guess >= 40 && guess <= 45)
-            {
-                printf("VERY CLOSE.....\n");
-            }
-            else if (guess >= 46 && guess <= 54)
-            {
-                printf("CLOSE.....\n");
-            }
-            else if (guess >= 55 && guess <= 100)
-            {
-                printf("TOO HIGH.....\n");
+                printf("\n🎊 YOU GOT IT! 🎊\n");
             }
             else
-                printf("INVALID NUMBER!!! (Must be between 1-100)\n");
+            {
+                int difference = abs(secret_num - guess);
+
+                if (guess < secret_num)
+                    printf("A little higher! ");
+                else
+                    printf("A little lower! ");
+
+                if (difference <= 5)
+                    printf("You're VERY close! 💗\n");
+                else if (difference <= 15)
+                    printf("Getting warmer! ✨\n");
+                else
+                    printf("Not quite there yet. Keep trying!\n");
+            }
 
         } while (guess != secret_num);
 
-        printf("CONGRATULATIONS🏆\n");
-        printf("Do you want to play again (Y for yes : N for no)");
+        printf("Congratulations! 🏆\n");
+        printf("Do you want to play again? (Y for yes / N for no): ");
         scanf(" %c", &option);
 
     } while (option == 'Y' || option == 'y');
 
-    printf("Thank you for playing NUMBER GUESSING GAME!!!\n");
-
+    printf("\nThank you for playing. Have a lovely day! 💜\n");
     return 0;
 }
