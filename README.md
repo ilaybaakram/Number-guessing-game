@@ -2,7 +2,11 @@
 
 *A little game from 12th standard, lovingly refreshed.*
 
-## 🎀 [Play A Little Guess of Luck Online](https://a-little-guess-of-luck.streamlit.app/)
+## 🎀 A Little Guess of Luck — Play Online
+
+[✨ Play the game here!](https://a-little-guess-of-luck.streamlit.app/)
+
+![Game Preview](preview.gif)
 
 Come play the cozy pastel version right in your browser—no installation needed! 🐰
 
