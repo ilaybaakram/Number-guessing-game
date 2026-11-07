@@ -2,6 +2,10 @@
 
 *A little game from 12th standard, lovingly refreshed.*
 
+## 🎀 [Play A Little Guess of Luck Online](https://a-little-guess-of-luck.streamlit.app/)
+
+Come play the cozy pastel version right in your browser—no installation needed! 🐰
+
 This was one of my early programming projects: a simple C game where you try to guess a secret number. I'm keeping it as a small reminder of where my coding journey began, while giving it a cute, cozy makeover.
 
 ## 🐰 The original C game
