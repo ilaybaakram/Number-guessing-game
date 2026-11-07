@@ -89,8 +89,11 @@ with center:
         st.rerun()
 
     if restart:
-        for key in ("secret", "attempts", "history", "message", "won", "guess_input"):
-            st.session_state.pop(key, None)
+        st.session_state.secret = random.randint(1, 100)
+        st.session_state.attempts = 0
+        st.session_state.history = []
+        st.session_state.message = "A fresh number is ready! Can you find it? ✨"
+        st.session_state.won = False
         st.rerun()
 
 with right:
